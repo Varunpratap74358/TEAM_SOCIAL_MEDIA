@@ -21,8 +21,12 @@ const userSchema = new mongoose.Schema({
         required:true,
     },
     profilePicture:{
-        type:String,
-        default:""
+        url:{
+            type:String,
+        },
+        public_id:{
+            type:String,
+        }
     },
     bio:{
         type:String,

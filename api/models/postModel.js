@@ -1,31 +1,35 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const postSchema = new mongoose.Schema({
   title: {
     type: String,
-    default: '',
+    default: "",
   },
   image: {
-    type: String,
-    required: true,
+    url: {
+      type: String,
+    },
+    public_id: {
+      type: String,
+    },
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: "User",
     required: true,
   },
   likes: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
     },
   ],
   comments: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Comment',
+      ref: "Comment",
     },
   ],
-})
+});
 
-export const Post = mongoose.model('Post', postSchema)
+export const Post = mongoose.model("Post", postSchema);
